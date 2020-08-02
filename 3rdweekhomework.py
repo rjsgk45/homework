@@ -1,3 +1,8 @@
+from pymongo import MongoClient
+
+client = MongoClient('localhost', 27017)
+db = client.dbsparta
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -13,3 +18,11 @@ for tr in trs:
     title = tr.select_one('td.info > a.title.ellipsis').text.strip()
     rank = tr.select_one('td.number').text[0:2].strip()
     artist = tr.select_one('td.info > a.artist.ellipsis').text
+
+    doc = {
+        'rank':rank,
+        'title':title,
+        'artist':artist
+    }
+
+    print(rank, title, artist)
