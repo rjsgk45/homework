@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>원페이지 쇼핑몰</title>
+    <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Song Myung', serif;
+        }
+
+        .item {
+            width: 500px;
+            height: 350px;
+            background-image: url("https://m.bavaria.kr/web/product/big/201906/ead4454fd548fd688d9176ebf6d244ce.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .price {
+            font-size: 20px;
+        }
+
+        .desc {
+            width: 500px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .order_box {
+            width: 500px;
+        }
+
+        .mybtn {
+            margin: auto;
+            display: block;
+        <!-- 디스플레이를 블럭으로 바꿔줘야 한다 . -->
+        }
+
+        .wrap {
+            margin: auto;
+            width: 500px;
+        }
+
+        .rate {
+            color: blue;
+        }
+    </style>
+    <script>
+
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "
+                success: function (response) {
+
+                }
+            })
+
+        });
+
+
+        function order() {
+            let name = $('#order_name').val();
+            let count = $('#order_count').val();
+            let address = $('#order_address').val();
+            let phonenumber = $('#order_phonenumber').val();
+
+            if (name == '') {
+                alert('이름을 입력하세요');
+            } else if (count == 'size') {
+                alert('사이즈를 입력하세요');
+            } else if (address == '') {
+                alert('주소를 입력하세요');
+            } else if (phonenumber == '') {
+                alert('전화번호를 입력하세요');
+            } else {
+                alert('주문이 완료되었습니다');
+            }
+
+        }
+    </script>
+
+</head>
+
+<body>
+<div class="wrap">
+    <div class="item"></div>
+    <div class="desc">
+        <h1>신발을 팝니다 <span class="price">가격:219000원/개</span></h1>
+        <p>유명가수 트래비스 스캇과 나이키의 조던1의 콜라보레이션 제품을 만나보세요!</p>
+
+        <p  class="rate">달러-원 환율: <span id="rate-now">a</span></p>
+    </div>
+
+    <div class="order_box">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">주문자이름</span>
+            </div>
+            <input id="order_name" type="text" class="form-control" aria-label="Default"
+                   aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">사이즈</label>
+            </div>
+            <select id="order_count" class="custom-select" id="inputGroupSelect01">
+                <option selected>size</option>
+                <option value="1">250</option>
+                <option value="2">255</option>
+                <option value="3">260</option>
+                <option value="4">265</option>
+                <option value="5">270</option>
+                <option value="6">275</option>
+                <option value="7">280</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default2">주소</span>
+            </div>
+            <input id="order_address" type="text" class="form-control" aria-label="Default"
+                   aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default3">전화번호</span>
+            </div>
+            <input id="order_phonenumber" type="text" class="form-control" aria-label="Default"
+                   aria-describedby="inputGroup-sizing-default">
+        </div>
+        <button onclick="order()" type="button" class="btn btn-primary mybtn">주문하기</button>
+    </div>
+</div>
+</body>
+
+</html>
